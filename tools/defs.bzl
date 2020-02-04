@@ -110,7 +110,7 @@ def go_library(name, srcs, deps = [], imports = [], stateify = True, marshal = F
                 name = name + suffix + "_state_autogen",
                 srcs = srcs,
                 imports = imports,
-                package = name,
+                package = native.package_name(),
                 out = name + suffix + "_state_autogen.go",
             )
         all_srcs = all_srcs + [
