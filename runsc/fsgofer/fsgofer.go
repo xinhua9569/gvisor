@@ -777,6 +777,16 @@ func (l *localFile) SetXattr(name, value string, flags uint32) error {
 	return syscall.EOPNOTSUPP
 }
 
+// TODO(b/148303075): support listxattr.
+func (l *localFile) ListXattr(size uint64) (map[string]struct{}, error) {
+	return nil, syscall.EOPNOTSUPP
+}
+
+// TODO(b/148303075): support removexattr.
+func (l *localFile) RemoveXattr(name string) error {
+	return syscall.EOPNOTSUPP
+}
+
 // Allocate implements p9.File.
 func (l *localFile) Allocate(mode p9.AllocateMode, offset, length uint64) error {
 	if !l.isOpen() {
